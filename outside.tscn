@@ -124,6 +124,6 @@ z_index = -5
 mesh = SubResource( 7 )
 
 [node name="Sun" type="Light2D" parent="."]
-position = Vector2( 509.75, 184.5 )
-scale = Vector2( 1020.5, -2.63922 )
+position = Vector2( 576, 184.5 )
+scale = Vector2( 2192, -2.63922 )
 texture = ExtResource( 1 )

@@ -137,7 +137,6 @@ alignment = 1
 [node name="Play" type="Button" parent="Buttons"]
 margin_right = 183.0
 margin_bottom = 75.0
-rect_rotation = -3.0
 rect_pivot_offset = Vector2( 80, 0 )
 focus_mode = 0
 custom_fonts/font = SubResource( 3 )
