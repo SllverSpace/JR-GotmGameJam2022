@@ -8,7 +8,7 @@ func _process(delta):
 func switchScene(scenePath):
 	close()
 	while $AnimationPlayer.is_playing():
-		yield(get_tree().create_timer(0), "timeout")
+		yield(get_tree().create_timer(0.01), "timeout")
 	get_tree().change_scene(scenePath)
 	open()
 
