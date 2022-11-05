@@ -19,7 +19,7 @@ func _physics_process(delta):
 	if is_on_ceiling():
 		velocity.y = gravity
 	
-	velocity.y += gravity * delta
+	velocity.y += gravity * delta * 60
 	velocity.x *= 0.5
 	
 	move_and_slide(velocity, Vector2.UP)
