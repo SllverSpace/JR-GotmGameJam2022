@@ -23,3 +23,8 @@ func _physics_process(delta):
 	velocity.x *= 0.5
 	
 	move_and_slide(velocity, Vector2.UP)
+
+
+func _on_Area2D_body_entered(body):
+	while $Camera2D.zoom != Vector2(0, 0):
+		$Camera2D.zoom -= Vector2(0.1, 0.1)
