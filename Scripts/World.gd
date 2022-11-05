@@ -17,6 +17,7 @@ func _ready():
 		lights.add_child(lightNode)
 
 func _process(delta):
+	
 	if reloadLights:
 		reloadLights = false
 		var lights = get_node(lightsPath)

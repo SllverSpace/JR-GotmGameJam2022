@@ -5,6 +5,7 @@ export (float) var gravity = 10
 export (float) var jumpSpeed = 1000
 
 var ticks = 0
+var jumps = 0
 var velocity = Vector2.ZERO
 
 func _physics_process(delta):
@@ -19,9 +20,12 @@ func _physics_process(delta):
 		$Sprite.scale.x = -1
 	
 	if is_on_floor():
+		jumps = 2
 		velocity.y = 0
-		if Input.is_action_pressed("jump"):
-			velocity.y = -jumpSpeed
+	
+	if Input.is_action_just_pressed("jump") and jumps > 0:
+		jumps -= 1
+		velocity.y = -jumpSpeed
 	if is_on_ceiling():
 		velocity.y = gravity
 	
