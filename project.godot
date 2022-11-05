@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Transition="*res://Transition.tscn"
+UI="*res://UI.tscn"
 
 [debug]
 

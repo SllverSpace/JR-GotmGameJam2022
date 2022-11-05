@@ -3,6 +3,8 @@ extends Node2D
 var timer = 0
 
 func _ready():
+	UI.get_node("Time").visible = true
+	UI.timer = 0
 	$"Editor Light".visible = false
 	$Lights.visible = true
 
