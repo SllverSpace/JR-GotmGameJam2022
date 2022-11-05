@@ -4,9 +4,13 @@ export (float) var speed = 500
 export (float) var gravity = 10
 export (float) var jumpSpeed = 1000
 
+var ticks = 0
 var velocity = Vector2.ZERO
 
 func _physics_process(delta):
+	ticks += 1
+	$Sprite.position.y = sin(ticks)*2
+	
 	if Input.is_action_pressed("right"):
 		velocity.x += speed
 	if Input.is_action_pressed("left"):
@@ -23,7 +27,6 @@ func _physics_process(delta):
 	velocity.x *= 0.5
 	
 	move_and_slide(velocity, Vector2.UP)
-
 
 func _on_Area2D_body_entered(body):
 	while $Camera2D.zoom != Vector2(0, 0):

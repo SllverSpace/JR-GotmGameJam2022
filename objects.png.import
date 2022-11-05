@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lamp post.png-21a7aab7010d63a8a547c5091f306353.stex"
+path="res://.import/objects.png-b2708fe6754e3b7124ffb60a67d390df.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://lamp post.png"
-dest_files=[ "res://.import/lamp post.png-21a7aab7010d63a8a547c5091f306353.stex" ]
+source_file="res://objects.png"
+dest_files=[ "res://.import/objects.png-b2708fe6754e3b7124ffb60a67d390df.stex" ]
 
 [params]
 

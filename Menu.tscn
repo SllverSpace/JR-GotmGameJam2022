@@ -60,7 +60,7 @@ tracks/0/keys = {
 "values": [ Vector2( 265.5, 24 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Buttons/Play:rect_rotation")
+tracks/1/path = NodePath("Buttons:rect_rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -88,7 +88,7 @@ tracks/0/keys = {
 "values": [ Vector2( 265.5, 24 ), Vector2( 265.5, 40 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Buttons/Play:rect_rotation")
+tracks/1/path = NodePath("Buttons:rect_rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -115,9 +115,9 @@ margin_bottom = 100.0
 grow_horizontal = 2
 custom_colors/font_color = Color( 1, 0.568627, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_x = 8
 custom_constants/line_spacing = 0
-custom_constants/shadow_offset_y = 4
+custom_constants/shadow_offset_y = 8
 custom_fonts/font = SubResource( 1 )
 text = "Ghost Mansion"
 align = 1
@@ -127,18 +127,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -33.0
-margin_top = -20.0
-margin_right = 33.0
-margin_bottom = 20.0
+margin_left = -91.5
+margin_top = -37.5
+margin_right = 91.5
+margin_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
+rect_rotation = -3.0
+rect_pivot_offset = Vector2( 90, 35 )
 alignment = 1
 
 [node name="Play" type="Button" parent="Buttons"]
 margin_right = 183.0
 margin_bottom = 75.0
-rect_rotation = -3.0
 rect_pivot_offset = Vector2( 80, 0 )
 focus_mode = 0
 custom_fonts/font = SubResource( 3 )
