@@ -7,6 +7,7 @@ export (float) var jumpSpeed = 1000
 var ticks = 0
 var jumps = 0
 var velocity = Vector2.ZERO
+var light_on = 0
 
 func _physics_process(delta):
 	ticks += 1
@@ -18,6 +19,18 @@ func _physics_process(delta):
 	if Input.is_action_pressed("left"):
 		velocity.x -= speed
 		$Sprite.scale.x = -1
+	
+	$Sprite/Light2D.look_at(get_global_mouse_position())
+	if Input. is_action_just_pressed("use"):
+		if light_on == 1:
+			light_on = 0
+		if light_on == 0:
+			light_on = 1
+	if light_on == 1:
+		$Sprite/Light2D.enabled = true
+	if light_on == 0:
+		$Sprite/Light2D.enabled = false
+	
 	
 	if is_on_floor():
 		jumps = 2
@@ -39,3 +52,4 @@ func _physics_process(delta):
 func _on_Area2D_body_entered(body):
 	while $Camera2D.zoom != Vector2(0, 0):
 		$Camera2D.zoom -= Vector2(0.1, 0.1)
+
