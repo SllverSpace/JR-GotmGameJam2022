@@ -59,7 +59,7 @@ margin_bottom = 57.0
 grow_horizontal = 2
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "Idk What to call this yet"
+text = "ghost mansion"
 align = 1
 
 [node name="Buttons" type="VBoxContainer" parent="."]
