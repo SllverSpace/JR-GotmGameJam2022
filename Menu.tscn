@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://homespun.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://PlayButton.tres" type="StyleBox" id=3]
+[ext_resource path="res://Ghost Mansion.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 75
@@ -150,5 +151,11 @@ text = " Play "
 autoplay = "title"
 anims/RESET = SubResource( 6 )
 anims/title = SubResource( 7 )
+
+[node name="GhostMansion" type="Sprite" parent="."]
+position = Vector2( 512, 320 )
+scale = Vector2( 18, 18 )
+z_index = -5
+texture = ExtResource( 4 )
 
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_Play_pressed"]
