@@ -11,7 +11,12 @@ config_version=4
 [application]
 
 config/name="Jr- Gotm Game Jam 2022"
+run/main_scene="res://Menu.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/height=640
 
 [physics]
 
