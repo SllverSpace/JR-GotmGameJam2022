@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SPOOK_WINDOW.png-a259e0b28d892b3fc81814401a005f95.stex"
+path="res://.import/tiles.png-bfbd3a49507d49882cba49626454bc89.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SPOOK_WINDOW.png"
-dest_files=[ "res://.import/SPOOK_WINDOW.png-a259e0b28d892b3fc81814401a005f95.stex" ]
+source_file="res://Assets/tiles.png"
+dest_files=[ "res://.import/tiles.png-bfbd3a49507d49882cba49626454bc89.stex" ]
 
 [params]
 
