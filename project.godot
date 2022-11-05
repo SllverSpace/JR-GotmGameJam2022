@@ -18,6 +18,10 @@ config/icon="res://icon.png"
 
 Transition="*res://Transition.tscn"
 
+[debug]
+
+settings/fps/force_fps=60
+
 [display]
 
 window/size/height=640
