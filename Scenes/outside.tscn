@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://sun-lighting.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=2]
@@ -11,6 +11,9 @@
 [sub_resource type="CubeMesh" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=11]
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 224, 51 )
 
 [node name="outside" type="Node2D"]
 script = ExtResource( 7 )
@@ -91,4 +94,11 @@ scale = Vector2( 2514, 10.7216 )
 texture = ExtResource( 1 )
 energy = 3.0
 
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( 768, -50 )
+shape = SubResource( 12 )
+
 [connection signal="body_entered" from="Area2D" to="player" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D2_body_entered"]

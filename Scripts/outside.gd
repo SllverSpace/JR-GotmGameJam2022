@@ -17,7 +17,13 @@ func _process(delta):
 		rain.position.y = -320
 		rain.position.x = rand_range(0, 1200)
 	for lightNode in $Lights.get_children():
-		lightNode.visible = $player.position.distance_to(lightNode.position) < 75
+		if rand_range(0, 10) < 0.25:
+			lightNode.energy = 4 - $player.position.distance_to(lightNode.position)/25
+		else:
+			lightNode.energy = 4 - $player.position.distance_to(lightNode.position)/30
+		lightNode.visible = $player.position.distance_to(lightNode.position) < 100
 
-		
-		
+
+func _on_Area2D2_body_entered(body):
+	if body.name == "player":
+		UI.stopTimer()
