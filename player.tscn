@@ -41,10 +41,11 @@ tracks/0/keys = {
 
 [node name="Player" type="KinematicBody2D"]
 modulate = Color( 0.196078, 0.196078, 0.196078, 1 )
+scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
-speed = 100.0
+speed = 125.0
 gravity = 5.0
-jumpSpeed = 100.0
+jumpSpeed = 150.0
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
