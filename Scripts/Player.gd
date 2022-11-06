@@ -73,12 +73,13 @@ func _on_Area2D_body_entered(body):
 			jumps = 1
 			if Input.is_action_pressed("down"):
 				velocity.y = -jumpSpeed*2
+				body.velocity.y = jumpSpeed*2
 			else:
 				velocity.y = -jumpSpeed
-			body.velocity.y = jumpSpeed
+				body.velocity.y = jumpSpeed
 			body.get_node("AnimationPlayer").play("shake")
 		else:
-			$Camera2D.smoothing_speed = 0.25
+			$Camera2D.smoothing_speed = 0.1
 			$Camera2D.position.y = -10000
 			Transition.setMsg("red", "YOU DIED")
 			Transition.switchScene("res://Scenes/Menu.tscn")

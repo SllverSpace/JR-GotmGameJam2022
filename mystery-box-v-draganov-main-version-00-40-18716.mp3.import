@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mystery-box-v-draganov-main-version-00-40-18716.mp3-42ef0254dd77a99da22844ec025973d0.mp3str"
+
+[deps]
+
+source_file="res://mystery-box-v-draganov-main-version-00-40-18716.mp3"
+dest_files=[ "res://.import/mystery-box-v-draganov-main-version-00-40-18716.mp3-42ef0254dd77a99da22844ec025973d0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

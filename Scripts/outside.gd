@@ -3,6 +3,7 @@ extends Node2D
 var timer = 0
 
 func _ready():
+	$Area2D2/Light.visible = true
 	$Tiles.modulate = Color(0.102, 0.102, 0.102)
 	UI.get_node("Time").visible = true
 	UI.timer = 0
@@ -28,4 +29,8 @@ func _process(delta):
 func _on_Area2D2_body_entered(body):
 	if body.name == "player":
 		UI.stopTimer()
+		$player/Camera2D.smoothing_speed = 0.1
+		$player/Camera2D.position.y = -10000
+		Transition.setMsg("green", "You Finished!\n" + str(round(UI.timer*100)/100))
+		Transition.switchScene("res://Scenes/Menu.tscn")
 

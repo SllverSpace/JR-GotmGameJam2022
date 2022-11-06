@@ -29,6 +29,8 @@ func switchScene(scenePath):
 	get_tree().change_scene(scenePath2)
 	if msg == "DON'T STOP RUNNING" or msg == "YOU DIED":
 		yield(get_tree().create_timer(0.75), "timeout")
+	if "You Finished!" in msg:
+		yield(get_tree().create_timer(3), "timeout")
 	open()
 	switching = false
 
