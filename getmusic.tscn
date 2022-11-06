@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://getmusic.gd" type="Script" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+
+[node name="getmusic" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 540.5, 287.5 )
+scale = Vector2( 541.5, 403.5 )
+mesh = SubResource( 1 )

@@ -20,7 +20,7 @@ func _process(delta):
 		
 	for lightNode in $Lights.get_children():
 		if rand_range(0, 10) < 0.25:
-			lightNode.energy = 10 - $player.position.distance_to(lightNode.position)/5
+			lightNode.energy = 10 - $player.position.distance_to(lightNode.position)/6
 		else:
 			lightNode.energy = 10 - $player.position.distance_to(lightNode.position)/5
 		lightNode.visible = $player.position.distance_to(lightNode.position) < 50

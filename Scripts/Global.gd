@@ -16,6 +16,12 @@ func _ready():
 		SaveLoad.saveData("thebois34-ghost-mansion.data", {"id": id, "Username": "Unnamed", "Muted": false})
 	savedData = data.duplicate(true)
 	
+	if not data["Muted"]:
+		yield(get_tree().create_timer(0.5), "timeout")
+		Music.playing = false
+		yield(get_tree().create_timer(0.1), "timeout")
+		Music.playing = true
+	
 func _process(delta):
 	if data != savedData:
 		savedData = data.duplicate(true)
