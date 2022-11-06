@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/light.png-2a7c25d2528b528b4775521a146eeb11.stex"
+path="res://.import/torch-3.png-52087e57db06fb39a4ba609acd067dfe.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/light.png"
-dest_files=[ "res://.import/light.png-2a7c25d2528b528b4775521a146eeb11.stex" ]
+source_file="res://Assets/Animated Tiles/Images/Torch/torch-3.png"
+dest_files=[ "res://.import/torch-3.png-52087e57db06fb39a4ba609acd067dfe.stex" ]
 
 [params]
 

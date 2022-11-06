@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/objects.png-b2708fe6754e3b7124ffb60a67d390df.stex"
+path="res://.import/flashlight.png-8330afeffcf46318cbaca0ba3c9fc1aa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects.png"
-dest_files=[ "res://.import/objects.png-b2708fe6754e3b7124ffb60a67d390df.stex" ]
+source_file="res://Assets/flashlight.png"
+dest_files=[ "res://.import/flashlight.png-8330afeffcf46318cbaca0ba3c9fc1aa.stex" ]
 
 [params]
 

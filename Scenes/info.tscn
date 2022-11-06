@@ -1,0 +1,193 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/homespun.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/PlayButton.tres" type="StyleBox" id=2]
+[ext_resource path="res://Scenes/info.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Ghost Mansion.png" type="Texture" id=4]
+[ext_resource path="res://Assets/defualt.tres" type="DynamicFont" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 75
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 265.5, 24 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "title"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2, 0.5 ),
+"update": 0,
+"values": [ Vector2( 265.5, 24 ), Vector2( 265.5, 40 ) ]
+}
+
+[sub_resource type="DynamicFont" id=8]
+size = 45
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.764706, 0.466667, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 7
+shadow_offset = Vector2( 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.658824, 0.4, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 7
+shadow_offset = Vector2( 1, 1 )
+
+[node name="Info" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -246.5
+margin_top = 24.0
+margin_right = 293.5
+margin_bottom = 100.0
+grow_horizontal = 2
+custom_colors/font_color = Color( 1, 0.568627, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 8
+custom_constants/line_spacing = 0
+custom_constants/shadow_offset_y = 8
+custom_fonts/font = SubResource( 1 )
+text = "Info & Controls"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "title"
+anims/RESET = SubResource( 6 )
+anims/title = SubResource( 7 )
+
+[node name="GhostMansion" type="Sprite" parent="."]
+position = Vector2( 512, 320 )
+scale = Vector2( 18, 18 )
+z_index = -5
+texture = ExtResource( 4 )
+
+[node name="InfoTitle" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -198.5
+margin_top = -171.0
+margin_right = 198.5
+margin_bottom = -138.0
+custom_colors/font_color = Color( 1, 0.568627, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
+custom_fonts/font = SubResource( 8 )
+text = "Info
+"
+align = 1
+
+[node name="Info" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -397.0
+margin_top = -124.0
+margin_right = 397.0
+margin_bottom = 53.0
+custom_fonts/font = ExtResource( 5 )
+text = "The Game is about a spooky mansion, the aim of the game is to not let the ghost touch you and to get to the top of the mansion. But you can also speedrun
+Most of the game mechanics are found by exploring."
+align = 1
+autowrap = true
+
+[node name="ControlsTitle" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -198.5
+margin_top = 64.0
+margin_right = 198.5
+margin_bottom = 159.0
+custom_colors/font_color = Color( 1, 0.568627, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
+custom_fonts/font = SubResource( 8 )
+text = "Controls"
+align = 1
+
+[node name="Controls" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -374.0
+margin_top = 115.0
+margin_right = 374.0
+margin_bottom = 184.0
+grow_horizontal = 2
+custom_fonts/font = ExtResource( 5 )
+text = " - WASD/Arrow Keys to move (You can also a controller)
+- Space/C/A on Controller to Jump
+- E to toggle flashlight"
+align = 1
+autowrap = true
+
+[node name="Back" type="Button" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 12.0
+margin_bottom = 20.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 5 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/normal = ExtResource( 2 )
+enabled_focus_mode = 0
+text = " Back "
+
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

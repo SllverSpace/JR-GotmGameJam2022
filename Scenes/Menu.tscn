@@ -135,11 +135,11 @@ margin_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
 rect_rotation = -3.0
-rect_pivot_offset = Vector2( 90, 35 )
+rect_pivot_offset = Vector2( 265, 75 )
 alignment = 1
 
 [node name="Play" type="Button" parent="Buttons"]
-margin_right = 183.0
+margin_right = 528.0
 margin_bottom = 75.0
 rect_pivot_offset = Vector2( 80, 0 )
 focus_mode = 0
@@ -149,6 +149,19 @@ custom_styles/pressed = SubResource( 5 )
 custom_styles/normal = ExtResource( 2 )
 enabled_focus_mode = 0
 text = " Play "
+
+[node name="Info & Controls" type="Button" parent="Buttons"]
+margin_top = 79.0
+margin_right = 528.0
+margin_bottom = 154.0
+rect_pivot_offset = Vector2( 80, 0 )
+focus_mode = 0
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = ExtResource( 2 )
+enabled_focus_mode = 0
+text = " Info & Controls "
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "title"
@@ -163,20 +176,21 @@ texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 26.0
-margin_top = 358.0
-margin_right = 416.0
-margin_bottom = 391.0
+margin_top = 335.0
+margin_right = 423.0
+margin_bottom = 368.0
 rect_rotation = -32.3
 custom_fonts/font = ExtResource( 5 )
 text = "\"I think E does something\""
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 549.0
-margin_top = 374.0
-margin_right = 1033.0
-margin_bottom = 407.0
+margin_left = 499.0
+margin_top = 441.0
+margin_right = 983.0
+margin_bottom = 474.0
 rect_rotation = 14.3
 custom_fonts/font = ExtResource( 5 )
 text = "\"Maybe reach the roof to win?\""
 
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Buttons/Info & Controls" to="." method="_on_Info__Controls_pressed"]

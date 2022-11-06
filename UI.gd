@@ -10,3 +10,6 @@ func _process(delta):
 
 func stopTimer():
 	runningTimer = false
+
+func startTimer():
+	runningTimer = true
