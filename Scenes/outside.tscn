@@ -28,7 +28,6 @@ mesh = SubResource( 7 )
 [node name="Tiles" type="Node2D" parent="."]
 
 [node name="World" type="TileMap" parent="Tiles"]
-position = Vector2( 16, 16 )
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 32
@@ -42,7 +41,6 @@ lightsPath = NodePath("../../Lights")
 light = ExtResource( 8 )
 
 [node name="world_troll_blocking" type="TileMap" parent="Tiles"]
-position = Vector2( 16, 16 )
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 32
@@ -54,7 +52,6 @@ tile_data = PoolIntArray( -2555905, 6, 0, -2490369, 6, 0, -2424833, 6, 0, -19660
 
 [node name="BG" type="TileMap" parent="Tiles"]
 modulate = Color( 0.392157, 0.392157, 0.392157, 1 )
-position = Vector2( 16, 16 )
 z_index = -1
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
