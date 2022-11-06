@@ -26,8 +26,10 @@ func _physics_process(delta):
 			light_on = 0
 		if light_on == 0:
 			light_on = 1
+
 	if light_on == 1:
 		$Sprite/Light2D.enabled = true
+		
 	if light_on == 0:
 		$Sprite/Light2D.enabled = false
 	

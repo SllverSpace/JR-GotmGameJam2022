@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/homespun.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/PlayButton.tres" type="StyleBox" id=2]
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Ghost Mansion.png" type="Texture" id=4]
+[ext_resource path="res://Assets/defualt.tres" type="DynamicFont" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 75
@@ -159,5 +160,23 @@ position = Vector2( 512, 320 )
 scale = Vector2( 18, 18 )
 z_index = -5
 texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 26.0
+margin_top = 358.0
+margin_right = 416.0
+margin_bottom = 391.0
+rect_rotation = -32.3
+custom_fonts/font = ExtResource( 5 )
+text = "\"I think E does something\""
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 549.0
+margin_top = 374.0
+margin_right = 1033.0
+margin_bottom = 407.0
+rect_rotation = 14.3
+custom_fonts/font = ExtResource( 5 )
+text = "\"Maybe reach the roof to win?\""
 
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_Play_pressed"]
