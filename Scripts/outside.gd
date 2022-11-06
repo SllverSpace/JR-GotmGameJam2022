@@ -9,6 +9,7 @@ func _ready():
 	$Lights.visible = true
 
 func _process(delta):
+	$world_troll_blocking.visible = false
 	timer += delta
 	if timer >= 0.01:
 		timer = 0
@@ -27,3 +28,7 @@ func _process(delta):
 func _on_Area2D2_body_entered(body):
 	if body.name == "player":
 		UI.stopTimer()
+
+
+func _on_Area2D3_body_entered(body):
+	$world_troll_blocking.visible = true
