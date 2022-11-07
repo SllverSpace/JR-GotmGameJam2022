@@ -36,8 +36,6 @@ func _process(delta):
 	$FLASH.visible = true
 	yield(get_tree().create_timer(0.2), "timeout")
 	$FLASH.visible = false
-		
-		
 
 func _on_Area2D2_body_entered(body):
 	if body.name == "player":

@@ -50,3 +50,18 @@ func getId(digits) -> String:
 		randomize()
 		id += str(aToZ[floor(rand_range(0, len(aToZ)-1))])
 	return id
+
+func getLeaderboard(name2):
+	var totalScores = []
+	var leaderboard = GotmLeaderboard.new()
+	leaderboard.name = name2
+	var scores = yield(leaderboard.get_scores(), "completed")
+	var i = 0
+	totalScores.append_array(scores)
+	while len(scores) >= 20:
+		i += 1
+		scores = yield(leaderboard.get_surrounding_scores(scores[19]), "completed")["after"]
+		totalScores.append_array(scores)
+	#print("Getting dupes for " + name2)
+	#getDupes(totalScores)
+	return totalScores
