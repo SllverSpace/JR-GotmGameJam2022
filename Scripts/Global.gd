@@ -4,6 +4,7 @@ var aToZ = "abcdefghijklmnopqrstuvwxyzABCDEFFGHIJKLMNOPQRSTUVWXYZ"
 var id = ""
 var data = {}
 var savedData = {}
+var leaderboard = {}
 var defaultData = {
 	"username": "Unnamed", "muted": false, "id": getId(10)
 }
