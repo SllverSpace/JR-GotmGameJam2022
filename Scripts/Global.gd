@@ -44,7 +44,6 @@ func _ready():
 	var leaderboard2 = GotmLeaderboard.new()
 	leaderboard2.name = "time"
 	leaderboard2.is_inverted = true
-	leaderboard2.is_unique = true
 	leaderboard = yield(leaderboard2.get_scores(), "completed")
 	
 	var usernames2 = yield(getLeaderboard("usernames"), "completed")
