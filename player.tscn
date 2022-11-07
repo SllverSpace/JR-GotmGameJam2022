@@ -92,7 +92,7 @@ scale_amount = 2.0
 [node name="Camera2D" type="Camera2D" parent="."]
 rotating = true
 current = true
-zoom = Vector2( 0.22, 0.22 )
+zoom = Vector2( 0.44, 0.44 )
 smoothing_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

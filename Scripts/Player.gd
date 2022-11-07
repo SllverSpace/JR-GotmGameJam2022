@@ -45,10 +45,9 @@ func _physics_process(delta):
 		velocity.y = -jumpSpeed
 	if is_on_ceiling():
 		velocity.y = gravity
-	
+
 	if Input.is_action_pressed("down") and not is_on_floor():
-		if abs($Sprite.rotation_degrees) > 145 and abs($Sprite.rotation_degrees) < 215:
-			$Sprite/CPUParticles2D.emitting = true
+		$Sprite/CPUParticles2D.emitting = true
 		targetAngle = 180
 #		if velocity.y < 0:
 #			velocity.y = gravity
