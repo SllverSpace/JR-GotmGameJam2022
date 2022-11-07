@@ -171,6 +171,7 @@ position = Vector2( 600, 346 )
 shape = SubResource( 16 )
 
 [node name="FLASH" type="MeshInstance2D" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.639216 )
 position = Vector2( 526.5, 102 )
 scale = Vector2( 904.5, 687 )
