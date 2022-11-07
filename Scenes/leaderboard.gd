@@ -2,6 +2,7 @@ extends Control
 
 var updated = 0
 var updating = false
+var refreshTimer = 0
 var lastUsername = Global.data["username"]
 
 func _ready():
@@ -13,6 +14,7 @@ func _ready():
 	var leaderboard2 = GotmLeaderboard.new()
 	leaderboard2.name = "time"
 	leaderboard2.is_inverted = true
+	leaderboard2.is_unique = true
 	Global.leaderboard = yield(leaderboard2.get_scores(), "completed")
 	$leaderboard.clear()
 	for time in Global.leaderboard:
@@ -32,6 +34,9 @@ func _process(delta):
 		yield(GotmScore.update(Global.scores[Global.id], 0, {"id": str(Global.id), "username": Global.data["username"]}), "completed")
 		updating = false
 		
+	refreshTimer += delta
+	if refreshTimer >= 2:
+		refreshTimer = 0
 		Global.scores = {}
 		Global.usernames = {}
 		var usernames2 = yield(Global.getLeaderboard("usernames"), "completed")
@@ -44,6 +49,7 @@ func _process(delta):
 		var leaderboard2 = GotmLeaderboard.new()
 		leaderboard2.name = "time"
 		leaderboard2.is_inverted = true
+		leaderboard2.is_unique = true
 		Global.leaderboard = yield(leaderboard2.get_scores(), "completed")
 		$leaderboard.clear()
 		for time in Global.leaderboard:
