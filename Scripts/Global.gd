@@ -4,9 +4,11 @@ var aToZ = "abcdefghijklmnopqrstuvwxyzABCDEFFGHIJKLMNOPQRSTUVWXYZ"
 var id = ""
 var data = {}
 var savedData = {}
-var leaderboard = {}
+var leaderboard = []
+var scores = {}
+var usernames = {}
 var defaultData = {
-	"username": "Unnamed", "muted": false, "id": getId(10)
+	"username": "Unnamed", "muted": false, "id": getId(10), "bestTime": 0
 }
 
 func _ready():
@@ -15,7 +17,7 @@ func _ready():
 	config.beta_unsafe_force_global_scores = true
 	config.beta_unsafe_force_global_contents = true
 	config.beta_unsafe_force_global_marks = true
-	#Gotm.initialize(config)
+	Gotm.initialize(config)
 	
 	var data2 = SaveLoad.loadData("thebois34-ghost-mansion.data")
 	if data2.has("id"):
@@ -38,6 +40,21 @@ func _ready():
 		Music.playing = false
 		yield(get_tree().create_timer(0.1), "timeout")
 		Music.playing = true
+	
+	var leaderboard2 = GotmLeaderboard.new()
+	leaderboard2.name = "time"
+	leaderboard2.is_inverted = true
+	leaderboard = yield(leaderboard2.get_scores(), "completed")
+	
+	var usernames2 = yield(getLeaderboard("usernames"), "completed")
+	var ids = []
+	for score in usernames2:
+		ids.append(score.properties["id"])
+		scores[score.properties["id"]] = score
+		usernames[score.properties["id"]] = score.properties["username"]
+	if not id in ids:
+		yield(GotmScore.create("usernames", 0, {"id": str(id), "username": data["username"]}), "completed")
+	#leaderboard = yield(getLeaderboard("time"), "completed")
 	
 func _process(delta):
 	if data != savedData:
@@ -62,6 +79,4 @@ func getLeaderboard(name2):
 		i += 1
 		scores = yield(leaderboard.get_surrounding_scores(scores[19]), "completed")["after"]
 		totalScores.append_array(scores)
-	#print("Getting dupes for " + name2)
-	#getDupes(totalScores)
 	return totalScores

@@ -51,7 +51,6 @@ func _on_Area2D3_body_entered(body):
 	if body.name == "player": 
 		$Tiles/world_troll_blocking.visible = true
 
-
 func _on_Area2D4_body_entered(body):
 	if body.name == "player":
 		$Tiles/world_troll_blocking.visible = true
