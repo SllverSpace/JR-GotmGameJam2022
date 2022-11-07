@@ -128,9 +128,9 @@ text = " Mute "
 [node name="Title" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 9.5
+margin_left = -246.5
 margin_top = 8.0
-margin_right = 502.5
+margin_right = 246.5
 margin_bottom = 84.0
 grow_horizontal = 2
 custom_colors/font_color = Color( 1, 0.568627, 0, 1 )
