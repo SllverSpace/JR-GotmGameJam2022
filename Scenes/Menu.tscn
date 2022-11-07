@@ -183,7 +183,6 @@ enabled_focus_mode = 0
 text = " Info & Controls "
 
 [node name="Leaderboard" type="Button" parent="Buttons"]
-visible = false
 margin_top = 86.0
 margin_right = 265.0
 margin_bottom = 125.0
@@ -237,3 +236,4 @@ text = "\"I wonder if you can bounce off the ghost...\""
 [connection signal="pressed" from="Mute" to="." method="_on_Mute_pressed"]
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Buttons/Info & Controls" to="." method="_on_Info__Controls_pressed"]
+[connection signal="pressed" from="Buttons/Leaderboard" to="." method="_on_Leaderboard_pressed"]
