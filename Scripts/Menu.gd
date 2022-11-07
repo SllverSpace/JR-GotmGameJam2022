@@ -3,7 +3,7 @@ extends Control
 var muted = true
 
 func _ready():
-	muted = Global.data["Muted"]
+	muted = Global.data["muted"]
 
 func _on_Play_pressed():
 	Transition.switchScene("res://Scenes/outside.tscn")
@@ -17,7 +17,7 @@ func _on_Info__Controls_pressed():
 
 func _on_Mute_pressed():
 	muted = not muted
-	Global.data["Muted"] = muted
+	Global.data["muted"] = muted
 
 func _on_Leaderboard_pressed():
 	Transition.setMsg("red", "")
