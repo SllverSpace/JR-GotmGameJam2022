@@ -32,10 +32,10 @@ func _process(delta):
 		lightNode.visible = $player.position.distance_to(lightNode.position) < 50
 		lightNode.enabled = $player.position.distance_to(lightNode.position) < 50
 		
-		yield(get_tree().create_timer(flash), "timeout")
-		$FLASH.visible = true
-		yield(get_tree().create_timer(0.2), "timeout")
-		$FLASH.visible = false
+	yield(get_tree().create_timer(flash), "timeout")
+	$FLASH.visible = true
+	yield(get_tree().create_timer(0.2), "timeout")
+	$FLASH.visible = false
 		
 		
 

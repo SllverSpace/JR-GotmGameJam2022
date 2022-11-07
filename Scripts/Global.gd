@@ -10,6 +10,13 @@ var defaultData = {
 }
 
 func _ready():
+	var config = GotmConfig.new()
+	config.project_key = "authenticators/GAg8PUqTDFZzLlagDuRB"
+	config.beta_unsafe_force_global_scores = true
+	config.beta_unsafe_force_global_contents = true
+	config.beta_unsafe_force_global_marks = true
+	#Gotm.initialize(config)
+	
 	var data2 = SaveLoad.loadData("thebois34-ghost-mansion.data")
 	if data2.has("id"):
 		id = data2["id"]
