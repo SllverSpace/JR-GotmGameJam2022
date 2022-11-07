@@ -18,3 +18,7 @@ func _on_Info__Controls_pressed():
 func _on_Mute_pressed():
 	muted = not muted
 	Global.data["Muted"] = muted
+
+func _on_Leaderboard_pressed():
+	Transition.setMsg("red", "")
+	Transition.switchScene("res://Scenes/leaderboard.tscn")
