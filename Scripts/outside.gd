@@ -5,8 +5,6 @@ var flash = rand_range(5, 15)
 var flash2 = rand_range(0.3,1.8)
 var flash2_maybe = rand_range(1,2)
 
-
-
 func _ready():
 	$FLASH.visible = false
 	$Area2D2/Light.visible = true
