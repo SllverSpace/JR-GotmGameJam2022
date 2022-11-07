@@ -16,11 +16,13 @@ func _ready():
 	$Tiles/world_troll_blocking.visible = false
 
 func _process(delta):
-	for i in range(1):
+	timer += delta
+	if timer > 0.03:
+		timer = 0
 		var rain = load("res://Rain.tscn").instance()
 		add_child(rain)
 		rain.position.y = rand_range(-320, -250)
-		rain.position.x = rand_range(0, 1200)
+		rain.position.x = rand_range($player.position.x-350, $player.position.x+350)
 		
 	for lightNode in $Lights.get_children():
 		if rand_range(0, 10) < 0.25:
