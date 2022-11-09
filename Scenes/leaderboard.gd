@@ -13,7 +13,10 @@ func reload():
 func _ready():
 	Global.connect("refreshed", self, "reload")
 	
-	$"Best Time".text = "Best Time: " + str(round(Global.data["besttime"]*100)/100)
+	if str(Global.data["besttime"]) != "Unknown":
+		$"Best Time".text = "Best Time: " + str(round(Global.data["besttime"]*100)/100)
+	else:
+		$"Best Time".text = "Best Time: Unknown"
 	$Username.text = Global.data["username"]
 	
 	reload()
