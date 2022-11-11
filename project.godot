@@ -241,7 +241,6 @@ UI="*res://UI.tscn"
 Music="*res://Music.tscn"
 Global="*res://Scripts/Global.gd"
 SaveLoad="*res://Scripts/SaveLoad.gd"
-Gotm="*res://gotm/Gotm.gd"
 
 [debug]
 
