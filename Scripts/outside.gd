@@ -18,8 +18,17 @@ func _ready():
 	UI.startTimer()
 	$Lights.visible = true
 	$Tiles/world_troll_blocking.visible = false
+	$Label4.visible = false
+
 
 func _process(delta):
+	$Area2D2/Ghost.look_at(get_node("player").position)
+	$Area2D2/Ghost2.look_at(get_node("player").position)
+	$Area2D2/Ghost3.look_at(get_node("player").position)
+	$Area2D2/Ghost4.look_at(get_node("player").position)
+	$Area2D2/Ghost5.look_at(get_node("player").position)
+	$Ghost.look_at(get_node("player").position)
+	
 	timer += delta
 	if timer > 0.03:
 		timer = 0
@@ -74,7 +83,7 @@ func _on_Area2D3_body_entered(body):
 
 func _on_Area2D4_body_entered(body):
 	if body.name == "player":
-		$Tiles/world_troll_blocking.visible = true
+		$Label4.visible = true
 
 
 func _on_Area2D5_body_entered(body):
