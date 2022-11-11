@@ -1,14 +1,18 @@
 extends Node2D
 
 var timer = 0
-var flash = rand_range(5, 15)
-var flash2 = rand_range(0.3,1.8)
-var flash2_maybe = rand_range(1,2)
+#var flash = rand_range(5, 15)
+#var flash2 = rand_range(0.3,1.8)
+#var flash2_maybe = rand_range(1,2)
+var flashCooldown = rand_range(5, 15)
+var flashTimer = flashCooldown
+var flashTimer2 = flashCooldown+0.2
 
 func _ready():
+	flashCooldown = rand_range(5, 15)
 	$FLASH.visible = false
 	$Area2D2/Light.visible = true
-	$Tiles.modulate = Color(0.102, 0.102, 0.102)
+	$Tiles.modulate = Color(0.15, 0.15, 0.15)
 	UI.get_node("Time").visible = true
 	UI.timer = 0
 	UI.startTimer()
@@ -16,11 +20,13 @@ func _ready():
 	$Tiles/world_troll_blocking.visible = false
 
 func _process(delta):
-	for i in range(1):
+	timer += delta
+	if timer > 0.03:
+		timer = 0
 		var rain = load("res://Rain.tscn").instance()
 		add_child(rain)
 		rain.position.y = rand_range(-320, -250)
-		rain.position.x = rand_range(0, 1200)
+		rain.position.x = rand_range($player.position.x-350, $player.position.x+350)
 		
 	for lightNode in $Lights.get_children():
 		if rand_range(0, 10) < 0.25:
@@ -29,11 +35,28 @@ func _process(delta):
 			lightNode.energy = 10 - $player.position.distance_to(lightNode.position)/5
 		lightNode.visible = $player.position.distance_to(lightNode.position) < 50
 		lightNode.enabled = $player.position.distance_to(lightNode.position) < 50
-		
-	yield(get_tree().create_timer(flash), "timeout")
-	$FLASH.visible = true
-	yield(get_tree().create_timer(0.2), "timeout")
-	$FLASH.visible = false
+	
+	flashTimer -= delta
+	flashTimer2 -= delta
+	if flashTimer <= 0:
+		if flashTimer > -0.1:
+			$FLASH.visible = true
+		else:
+			$FLASH.visible = false
+			flashTimer = flashCooldown
+	if flashTimer2 <= 0:
+		if flashTimer2 > -0.1:
+			$FLASH.visible = true
+		else:
+			$FLASH.visible = false
+			flashTimer2 = flashCooldown+0.2
+			flashCooldown = rand_range(5, 15)
+	
+	
+#	yield(get_tree().create_timer(flash), "timeout")
+#	$FLASH.visible = true
+#	yield(get_tree().create_timer(0.2), "timeout")
+#	$FLASH.visible = false
 
 func _on_Area2D2_body_entered(body):
 	if body.name == "player":
@@ -48,7 +71,6 @@ func _on_Area2D2_body_entered(body):
 func _on_Area2D3_body_entered(body):
 	if body.name == "player": 
 		$Tiles/world_troll_blocking.visible = true
-
 
 func _on_Area2D4_body_entered(body):
 	if body.name == "player":

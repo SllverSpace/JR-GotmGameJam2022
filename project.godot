@@ -335,7 +335,7 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 quality/driver/driver_name="GLES2"
-2d/snapping/use_gpu_pixel_snap=true
+misc/lossless_compression/force_png=true
 quality/directional_shadow/size=256
 quality/directional_shadow/size.mobile=256
 quality/shadow_atlas/size=256
@@ -344,6 +344,9 @@ quality/shadow_atlas/cubemap_size=256
 quality/shadows/filter_mode=0
 quality/reflections/texture_array_reflections=false
 quality/reflections/high_quality_ggx=false
-quality/filters/anisotropic_filter_level=1
+quality/filters/anisotropic_filter_level=2
+gles2/compatibility/disable_half_float=true
 quality/lightmapping/use_bicubic_sampling=false
+quality/reflections/atlas_size=0
+quality/depth/hdr=false
 environment/default_environment="res://default_env.tres"

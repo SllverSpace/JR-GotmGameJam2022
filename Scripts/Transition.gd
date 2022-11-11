@@ -30,7 +30,8 @@ func switchScene(scenePath):
 	if msg == "DON'T STOP RUNNING" or msg == "YOU DIED":
 		yield(get_tree().create_timer(0.75), "timeout")
 	if "You Finished!" in msg:
-		yield(get_tree().create_timer(3), "timeout")
+		yield(GotmScore.create("time", UI.timer, {"id": str(Global.id)}), "completed")
+		yield(get_tree().create_timer(2), "timeout")
 	open()
 	switching = false
 
