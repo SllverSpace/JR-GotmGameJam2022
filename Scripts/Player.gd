@@ -9,7 +9,12 @@ var onFloor = false
 var jumps = 0
 var targetAngle = 0
 var velocity = Vector2.ZERO
+var torch_on = 0
 
+func _start():
+	$TorchOn.visible = false
+	$TorchOff.visible = true
+	
 func _physics_process(delta):
 	ticks += 1
 	$Sprite.position.y = sin(ticks)*2
@@ -22,9 +27,20 @@ func _physics_process(delta):
 		$Sprite.scale.x = -1
 	
 	$Light2D.look_at(get_global_mouse_position())
-	if Input. is_action_just_pressed("use"):
+	$TorchOff.look_at(get_global_mouse_position())
+	$TorchOn.look_at(get_global_mouse_position())
+	if Input. is_action_just_pressed("use") and torch_on == 0:
+		$torch_animations.play("light on")
+		torch_on = 1
+		yield(get_tree().create_timer(0.4), "timeout")
 		$Light2D.enabled = not $Light2D.enabled
-	
+	if Input. is_action_just_pressed("use") and torch_on == 1:
+		$torch_animations.play("light off")
+		torch_on = 0
+		yield(get_tree().create_timer(0.4), "timeout")
+		$Light2D.enabled = false
+		
+	 
 	if onFloor:
 		jumps = 2
 		
