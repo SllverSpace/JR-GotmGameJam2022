@@ -22,12 +22,12 @@ func _ready():
 
 
 func _process(delta):
-	$Area2D2/Ghost.look_at(get_node("player").position)
-	$Area2D2/Ghost2.look_at(get_node("player").position)
-	$Area2D2/Ghost3.look_at(get_node("player").position)
-	$Area2D2/Ghost4.look_at(get_node("player").position)
-	$Area2D2/Ghost5.look_at(get_node("player").position)
-	$Ghost.look_at(get_node("player").position)
+#	$Area2D2/Ghost.look_at(get_node("player").position)
+#	$Area2D2/Ghost2.look_at(get_node("player").position)
+#	$Area2D2/Ghost3.look_at(get_node("player").position)
+#	$Area2D2/Ghost4.look_at(get_node("player").position)
+#	$Area2D2/Ghost5.look_at(get_node("player").position)
+#	$Ghost.look_at(get_node("player").position)
 	
 	timer += delta
 	if timer > 0.03:
@@ -39,11 +39,10 @@ func _process(delta):
 		
 	for lightNode in $Lights.get_children():
 		if rand_range(0, 10) < 0.25:
-			lightNode.energy = 10 - $player.position.distance_to(lightNode.position)/6
+			lightNode.modulate.a = 0.75-$player.position.distance_to(lightNode.position)/50
 		else:
-			lightNode.energy = 10 - $player.position.distance_to(lightNode.position)/5
+			lightNode.modulate.a = 1-$player.position.distance_to(lightNode.position)/50
 		lightNode.visible = $player.position.distance_to(lightNode.position) < 50
-		lightNode.enabled = $player.position.distance_to(lightNode.position) < 50
 	
 	flashTimer -= delta
 	flashTimer2 -= delta
@@ -74,8 +73,6 @@ func _on_Area2D2_body_entered(body):
 		$player/Camera2D.position.y = -10000
 		Transition.setMsg("green", "You Finished!\n" + str(round(UI.timer*100)/100))
 		Transition.switchScene("res://Scenes/Menu.tscn")
-
-
 
 func _on_Area2D3_body_entered(body):
 	if body.name == "player": 

@@ -18,7 +18,7 @@ signal refreshed
 func refresh():
 	var usernames3 = {}
 	var scores3 = {}
-	var leaderboard3 = yield(getLeaderboard("time"), "completed")
+	var leaderboard3 = yield(getLeaderboard("time3", 3), "completed")
 	done = false
 	if not fullLeaderboard:
 		var dupes = {}
@@ -29,17 +29,17 @@ func refresh():
 			else:
 				dupes[id2].append(score)
 		for dupe in dupes:
-			var lowest = 0
+			var highest = 0
 			for score in dupes[dupe]:
-				if score.value < lowest or lowest == 0:
-					lowest = score.value
+				if score.value > highest or highest == 0:
+					highest = score.value
 			if dupe == id:
-				data["besttime"] = lowest
+				data["besttime"] = highest
 			for score in dupes[dupe]:
-				if score.value != lowest:
+				if score.value != highest:
 					leaderboard3.remove(leaderboard3.find(score))
 	
-	var usernames2 = yield(getLeaderboard("usernames"), "completed")
+	var usernames2 = yield(getLeaderboard("usernames2"), "completed")
 	var ids = []
 	for score in usernames2:
 		ids.append(score.properties["id"])
@@ -53,13 +53,13 @@ func refresh():
 
 func _ready():
 	var config = GotmConfig.new()
-	config.project_key = "authenticators/nopALru8B1qvOAMVda04"
+	config.project_key = "authenticators/GAg8PUqTDFZzLlagDuRB"
 	config.beta_unsafe_force_global_scores = true
 	config.beta_unsafe_force_global_contents = true
 	config.beta_unsafe_force_global_marks = true
 	Gotm.initialize(config)
 	
-	var data2 = SaveLoad.loadData("team-sowflux-ghost-mansion.data")
+	var data2 = SaveLoad.loadData("thebois34-ghost-mansion3.data")
 	if data2.has("id"):
 		id = data2["id"]
 		data = data2.duplicate(true)
@@ -72,7 +72,7 @@ func _ready():
 	else:
 		id = Global.getId(10)
 		data = defaultData.duplicate(false)
-		SaveLoad.saveData("team-slowflux-ghost-mansion.data", {"id": id, "Username": "Unnamed", "Muted": false})
+		SaveLoad.saveData("thebois34-ghost-mansion.data3", {"id": id, "Username": "Unnamed", "Muted": false})
 	savedData = data.duplicate(true)
 	
 	if not data["muted"]:
@@ -83,7 +83,7 @@ func _ready():
 	
 	yield(refresh(), "completed")
 	if not usernames.has(id):
-		yield(GotmScore.create("usernames", 0, {"id": str(id), "username": data["username"]}), "completed")
+		yield(GotmScore.create("usernames2", 0, {"id": str(id), "username": data["username"]}), "completed")
 	done = true
 	
 func _process(delta):
@@ -91,7 +91,7 @@ func _process(delta):
 		refresh()
 	if data != savedData:
 		savedData = data.duplicate(true)
-		SaveLoad.saveData("frostweb-games-ghost-mansion.data", data)
+		SaveLoad.saveData("thebois34-ghost-mansion3.data", data)
 
 func getId(digits) -> String:
 	var id = ""
@@ -113,5 +113,4 @@ func getLeaderboard(name2, maxRounds=3):
 		i += 1
 		scores = yield(leaderboard.get_surrounding_scores(scores[19]), "completed")["after"]
 		totalScores.append_array(scores)
-	totalScores.invert()
 	return totalScores

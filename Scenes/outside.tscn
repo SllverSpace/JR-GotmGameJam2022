@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Ghost.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://Assets/homespun.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Scripts/outside.gd" type="Script" id=7]
 [ext_resource path="res://Light.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Assets/defualt.tres" type="DynamicFont" id=9]
 
 [sub_resource type="CubeMesh" id=7]
 
@@ -20,11 +19,14 @@ extents = Vector2( 27.5, 27.5 )
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 4, 48 )
 
+[sub_resource type="DynamicFontData" id=20]
+font_path = "res://Assets/homespun.ttf"
+
 [sub_resource type="DynamicFont" id=15]
 size = 9
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 6 )
+font_data = SubResource( 20 )
 
 [sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 72, 10 )
@@ -35,8 +37,26 @@ albedo_color = Color( 0.466667, 0.466667, 0.466667, 0 )
 [sub_resource type="CubeMesh" id=18]
 material = SubResource( 17 )
 
+[sub_resource type="DynamicFont" id=21]
+size = 9
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=22]
+size = 9
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
 [sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 45, 25 )
+
+[sub_resource type="DynamicFont" id=23]
+size = 9
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
 
 [node name="outside" type="Node2D"]
 script = ExtResource( 7 )
@@ -145,7 +165,6 @@ z_index = -1
 texture = ExtResource( 5 )
 
 [node name="Light" parent="Area2D2" instance=ExtResource( 8 )]
-visible = false
 position = Vector2( 964, -20 )
 
 [node name="Ghost" parent="." instance=ExtResource( 1 )]
@@ -187,7 +206,7 @@ margin_left = 445.0
 margin_top = 757.0
 margin_right = 528.0
 margin_bottom = 774.0
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = SubResource( 21 )
 text = "don't go up"
 
 [node name="Label3" type="Label" parent="."]
@@ -195,7 +214,7 @@ margin_left = 447.0
 margin_top = 545.0
 margin_right = 530.0
 margin_bottom = 562.0
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = SubResource( 22 )
 text = "Hi :)"
 
 [node name="Area2D5" type="Area2D" parent="."]
@@ -209,7 +228,7 @@ margin_left = 642.0
 margin_top = 426.0
 margin_right = 707.0
 margin_bottom = 474.0
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = SubResource( 23 )
 text = "What was 
 the point
 of that"

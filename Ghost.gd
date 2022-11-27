@@ -6,11 +6,13 @@ onready var player = get_node(playerPath)
 var velocity = Vector2.ZERO
 
 func _physics_process(delta):
-	if $Sprite.rotation_degrees >= 85 and $Sprite.rotation_degrees <=95:
-		$Sprite.flip_v = true
-	
 	velocity += (player.position-position)/2/6
 	velocity *= 0.9
 	move_and_slide(velocity)
+	
+	if velocity.x > 0:
+		$Sprite.scale.x = 1
+	else:
+		$Sprite.scale.x = -1
 
 

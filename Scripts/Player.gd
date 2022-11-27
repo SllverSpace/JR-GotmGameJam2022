@@ -26,19 +26,19 @@ func _physics_process(delta):
 		velocity.x -= speed
 		$Sprite.scale.x = -1
 	
-	$Light2D.look_at(get_global_mouse_position())
+	$Flashlight.look_at(get_global_mouse_position())
 	$TorchOff.look_at(get_global_mouse_position())
 	$TorchOn.look_at(get_global_mouse_position())
 	if Input. is_action_just_pressed("use") and torch_on == 0:
 		$torch_animations.play("light on")
 		torch_on = 1
 		yield(get_tree().create_timer(0.4), "timeout")
-		$Light2D.enabled = not $Light2D.enabled
+		$Flashlight.visible = not $Flashlight.visible
 	if Input. is_action_just_pressed("use") and torch_on == 1:
 		$torch_animations.play("light off")
 		torch_on = 0
 		yield(get_tree().create_timer(0.4), "timeout")
-		$Light2D.enabled = false
+		$Flashlight.visible = false
 		
 	 
 	if onFloor:

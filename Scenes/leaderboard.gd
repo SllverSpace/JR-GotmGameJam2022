@@ -8,13 +8,13 @@ func reload():
 	$leaderboard.clear()
 	for time in Global.leaderboard:
 		$leaderboard.add_item(Global.usernames[time.properties["id"]], null, false)
-		$leaderboard.add_item(str(round(time.value*100)/100), null, false)
+		$leaderboard.add_item(str(round(-time.value*100)/100), null, false)
 
 func _ready():
 	Global.connect("refreshed", self, "reload")
 	
 	if str(Global.data["besttime"]) != "Unknown":
-		$"Best Time".text = "Best Time: " + str(round(Global.data["besttime"]*100)/100)
+		$"Best Time".text = "Best Time: " + str(round(-Global.data["besttime"]*100)/100)
 	else:
 		$"Best Time".text = "Best Time: Unknown"
 	$Username.text = Global.data["username"]
@@ -28,7 +28,7 @@ func _process(delta):
 		Global.data["username"] = $Username.text
 	else:
 		updated -= delta
-	if updated <= 0 and $Username.text != lastUsername:
+	if updated <= 0 and $Username.text != lastUsername and Global.scores.has(Global.id):
 		lastUsername = $Username.text
 		updating = true
 		yield(GotmScore.update(Global.scores[Global.id], 0, {"id": str(Global.id), "username": Global.data["username"]}), "completed")
