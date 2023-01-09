@@ -230,9 +230,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Jr- Gotm Game Jam 2022"
+config/name="Ghost Mansion"
 run/main_scene="res://Scenes/Menu.tscn"
-config/icon="res://icon.png"
+config/icon="res://icon2.png"
 
 [autoload]
 
